@@ -1,7 +1,12 @@
 import { Button, Icon, Item, ItemGroup, ItemHeader, List, Segment, SegmentGroup } from "semantic-ui-react";
 import { EventListAttendee } from "./EventListAttendee";
+import { AppEvent } from "../../../types/event";
 
-export function EventListItem({ event }: any) {
+type Props = {
+  event: AppEvent
+}
+
+export function EventListItem({ event }: Props) {
   return (
     <SegmentGroup>
       <Segment>
@@ -24,7 +29,7 @@ export function EventListItem({ event }: any) {
       <Segment secondary>
         <List horizontal>
           {
-            event.attendees.map((attendee: any) => {
+            event.attendees.map((attendee) => {
               return <EventListAttendee key={attendee.id} attendee={attendee} />
             })
           }
